@@ -1,0 +1,20 @@
+<h1>Lista de EPIs</h1>
+<a href="{% url 'epi_novo' %}">Novo EPI</a>
+
+<table border="1">
+    <tr>
+        <th>Nome</th>
+        <th>CA</th>
+        <th>Ações</th>
+    </tr>
+    {% for epi in epis %}
+    <tr>
+        <td>{{ epi.nome }}</td>
+        <td>{{ epi.ca }}</td>
+        <td>
+            <a href="{% url 'epi_editar' epi.id %}">Editar</a> |
+            <a href="{% url 'epi_excluir' epi.id %}">Excluir</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

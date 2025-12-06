@@ -1,0 +1,10 @@
+.dashboard-cards { display:flex; gap:16px; margin:20px 0; flex-wrap:wrap; }
+.dashboard-cards .card { background:#fff; border:1px solid #e1e8f0; padding:16px; border-radius:8px; width:320px; box-shadow:0 2px 6px rgba(6,22,40,0.04); }
+.recent-list { list-style:none; margin:10px 0; padding:0; max-height:240px; overflow:auto; }
+.recent-list li { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px dashed #f0f4f8; }
+.item-name { font-size:14px; color:#0b1320; }
+.item-actions a { margin-left:8px; text-decoration:none; font-size:13px; padding:6px 8px; border-radius:6px; }
+.btn-list { background:transparent; color:#0b5fff; border:1px solid rgba(11,95,255,0.12); }
+.btn-add { background:#0b5fff; color:#fff; padding:8px 12px; border-radius:6px; text-decoration:none; }
+.btn-delete { background:#ff4d4f; color:#fff; border:1px solid #ff4d4f; }
+.card-links { margin-top:12px; display:flex; gap:8px; }

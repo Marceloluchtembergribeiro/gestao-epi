@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+<h2>Lista de Colaboradores</h2>
+
+<a href="{% url 'colaborador_novo' %}">Novo Colaborador</a>
+
+<table border="1" cellpadding="6">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Setor</th>
+        <th>Ações</th>
+    </tr>
+
+    {% for c in colaboradores %}
+    <tr>
+        <td>{{ c.id }}</td>
+        <td>{{ c.nome }}</td>
+        <td>{{ c.cpf }}</td>
+        <td>{{ c.setor }}</td>
+        <td>
+            <a href="{% url 'colaborador_editar' c.id %}">Editar</a> |
+            <a href="{% url 'colaborador_delete' c.id %}">Excluir</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

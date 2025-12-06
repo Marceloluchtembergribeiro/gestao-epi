@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalhes do EPI{% endblock %}
+
+{% block content %}
+<h2>Detalhes do EPI</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Nome:</th>
+        <td>{{ epi.nome }}</td>
+    </tr>
+    <tr>
+        <th>Descrição:</th>
+        <td>{{ epi.descricao }}</td>
+    </tr>
+    <tr>
+        <th>Quantidade:</th>
+        <td>{{ epi.quantidade }}</td>
+    </tr>
+</table>
+
+<a href="{% url 'epi_lista' %}" class="btn btn-secondary">Voltar</a>
+<a href="{% url 'epi_editar' epi.id %}" class="btn btn-warning">Editar</a>
+{% endblock %}

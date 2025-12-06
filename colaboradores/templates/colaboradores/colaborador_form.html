@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+<h2>Cadastro / Edição de Colaborador</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+</form>
+
+<a href="{% url 'colaborador_lista' %}">Voltar</a>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "admin/index.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="dashboard-cards">
+  <div class="card">
+    <h2>Colaboradores</h2>
+    <p class="count">{{ colaboradores_count|default:'0' }}</p>
+
+    <ul class="recent-list">
+      {% for obj in recent_colaboradores %}
+        <li>
+          <span class="item-name">{{ obj.nome }}</span>
+          <span class="item-actions">
+            <a class="btn-list" href="{% url 'admin:colaboradores_colaborador_change' obj.pk %}">Ver / Editar</a>
+            {% if perms.colaboradores.delete_colaborador %}
+              <a class="btn-delete" href="{% url 'admin:colaboradores_colaborador_delete' obj.pk %}">Excluir</a>
+            {% endif %}
+          </span>
+        </li>
+      {% empty %}
+        <li>Nenhum colaborador cadastrado.</li>
+      {% endfor %}
+    </ul>
+
+    <p class="card-links">
+      <a class="btn-add" href="{% url 'admin:colaboradores_colaborador_add' %}">Adicionar Colaborador</a>
+      <a class="btn-list" href="{% url 'admin:colaboradores_colaborador_changelist' %}">Listar todos</a>
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>EPIs</h2>
+    <p class="count">{{ epis_count|default:'0' }}</p>
+
+    <ul class="recent-list">
+      {% for obj in recent_epis %}
+        <li>
+          <span class="item-name">{{ obj.nome }}</span>
+          <span class="item-actions">
+            <a class="btn-list" href="{% url 'admin:epis_epi_change' obj.pk %}">Ver / Editar</a>
+            {% if perms.epis.delete_epi %}
+              <a class="btn-delete" href="{% url 'admin:epis_epi_delete' obj.pk %}">Excluir</a>
+            {% endif %}
+          </span>
+        </li>
+      {% empty %}
+        <li>Nenhum EPI cadastrado.</li>
+      {% endfor %}
+    </ul>
+
+    <p class="card-links">
+      <a class="btn-add" href="{% url 'admin:epis_epi_add' %}">Adicionar EPI</a>
+      <a class="btn-list" href="{% url 'admin:epis_epi_changelist' %}">Listar todos</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

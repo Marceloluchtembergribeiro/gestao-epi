@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Início{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Sistema de Gestão de EPIs</h2>
+    <hr>
+
+    <a href="{% url 'colaborador_lista' %}" class="btn btn-primary me-3">
+        Colaboradores
+    </a>
+
+    <a href="{% url 'epi_lista' %}" class="btn btn-secondary">
+        EPIs
+    </a>
+</div>
+{% endblock %}

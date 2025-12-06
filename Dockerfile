@@ -1,0 +1,8 @@
+FROM python:3.11-slim
+ENV PYTHONUNBUFFERED=1
+WORKDIR /app
+COPY . /app
+RUN pip install --upgrade pip
+RUN if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+EXPOSE 8000
+CMD ["gunicorn", "gestao_epi.wsgi:application", "--bind", "0.0.0.0:8000"]

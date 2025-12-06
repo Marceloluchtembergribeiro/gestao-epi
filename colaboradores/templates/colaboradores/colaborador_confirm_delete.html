@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+<h2>Excluir Colaborador</h2>
+
+<p>Tem certeza que deseja excluir <strong>{{ colaborador.nome }}</strong>?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar</button>
+</form>
+
+<a href="{% url 'colaborador_lista' %}">Cancelar</a>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+<h1>Cadastro de EPI</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+</form>
+
+<a href="{% url 'epi_lista' %}">Voltar</a>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Novo Colaborador{% endblock %}
+
+{% block content %}
+<h2>{% if colaborador %}Editar{% else %}Novo{% endif %} Colaborador</h2>
+
+<form method="post" class="mt-3">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">
+        {% if colaborador %}Salvar{% else %}Cadastrar{% endif %}
+    </button>
+</form>
+{% endblock %}
