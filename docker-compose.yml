@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: gestao_epi
+      POSTGRES_USER: epiuser
+      POSTGRES_PASSWORD: epipass
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - epi-network
+
+  web:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: gunicorn gestao_epi.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgres://epiuser:epipass@db:5432/gestao_epi
+    depends_on:
+      - db
+    networks:
+      - epi-network
+
+volumes:
+  db_data:
+
+networks:
+  epi-network:
+    driver: bridge
